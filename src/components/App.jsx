@@ -22,9 +22,11 @@ export class App extends Component {
     }
   }
   
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem(CONTACTS_KEY, JSON.stringify(this.state.contacts))
+  componentDidUpdate(prevState) {
+    const { contacts } = this.state
+    
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts))
     }
   }
 
